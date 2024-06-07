@@ -23,3 +23,18 @@ int main()
 
     return 0;
 }
+
+//using bit manupulation
+class Solution{   
+public:
+    string oddEven(int N){
+        string ans;
+      if(N&1==1)
+      ans= "odd";
+      else
+      ans ="even";
+      
+      return ans;
+    }
+};
+
