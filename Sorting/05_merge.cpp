@@ -54,7 +54,7 @@ void merge(vector<int>&arr,int s,int e)
     }
 
      //copy logic  for right array
-    while(leftIndex<len1)
+    while(rightIndex<len2)
     {
         arr[MainArrayIndex]=right[rightIndex];
         MainArrayIndex++,rightIndex++;
