@@ -1,3 +1,49 @@
+ //brute force 
+    
+    int print2largest(vector<int> &arr) {
+       sort(arr.begin(),arr.end());
+       return arr[arr.size() -2];
+    }
+// Time  Complexity :O(nlog n) , SC:O(1)
+
+
+class Solution {
+  public:
+    // Function returns the second
+    // better approach 
+    int largest (vector<int>&arr)
+    {
+        int maxi = INT_MIN;
+        for( int i =0;i< arr.size();i++)
+        {
+            if(maxi <= arr[i])
+            {
+                maxi = arr[i];
+            }
+        }
+        return maxi;
+    }
+    int print2largest(vector<int> &arr) {
+        if (arr.size() < 2) return -1;
+        int large= largest(arr);
+        int secondL = INT_MIN;
+        sort(arr.begin(),arr.end());
+        for( int i = arr.size() - 2 ; i >=0 ; i--)
+        {
+            if(arr[i]!= large && arr[i]>secondL)
+            {
+                secondL =arr[i];
+            }
+            
+        }
+        return secondL;
+    }
+    
+};/*
+Time Complexity (TC): O(nlogn)
+Space Complexity (SC): O(1)*/
+
+
 
 int SecondL(int n, vector<int> a)
 {
