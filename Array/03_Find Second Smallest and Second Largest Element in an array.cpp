@@ -33,6 +33,7 @@ class Solution {
             if(arr[i]!= large && arr[i]>secondL)
             {
                 secondL =arr[i];
+                break;
             }
             
         }
@@ -44,7 +45,37 @@ Time Complexity (TC): O(nlogn)
 Space Complexity (SC): O(1)*/
 
 
-
+int smallest(vector<int>&arr)
+    {
+        int mini = INT_MAX;
+        for(int i=0;i<arr.size();i++)
+        {
+            if(mini > arr[i])mini = arr[i];
+            
+        }
+        return mini;
+    }
+    vector<int> minAnd2ndMin(vector<int> &arr) {
+       if(arr.size()<2)return { -1};
+       
+       int SecondS= INT_MAX;
+       int FirstS = smallest(arr);
+       sort(arr.begin(),arr.end());
+       for(int i =  0; i < arr.size();i++)
+       {
+           if(arr[i]!=FirstS && arr[i]<SecondS)
+           {
+               SecondS=arr[i];
+               break;
+           }
+       }
+       if (SecondS == INT_MAX) {
+            return { -1 };
+        }
+       return {FirstS,SecondS};
+    }
+    
+};// TC:O(nlogn), SC:O(1)
 int SecondL(int n, vector<int> a)
 {
  int largest = a[0];
