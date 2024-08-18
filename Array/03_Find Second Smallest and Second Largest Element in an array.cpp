@@ -10,7 +10,7 @@
 class Solution {
   public:
     // Function returns the second
-    // better approach 
+    // optimal approach 
     int largest (vector<int>&arr)
     {
         int maxi = INT_MIN;
@@ -27,13 +27,12 @@ class Solution {
         if (arr.size() < 2) return -1;
         int large= largest(arr);
         int secondL = INT_MIN;
-        sort(arr.begin(),arr.end());
-        for( int i = arr.size() - 2 ; i >=0 ; i--)
+        
+        for( int i = arr.size() - 1 ; i >=0 ; i--)
         {
             if(arr[i]!= large && arr[i]>secondL)
             {
                 secondL =arr[i];
-                break;
             }
             
         }
@@ -41,11 +40,13 @@ class Solution {
     }
     
 };/*
-Time Complexity (TC): O(nlogn)
+Time Complexity (TC): O(n)
 Space Complexity (SC): O(1)*/
 
-
-int smallest(vector<int>&arr)
+//optimal way
+class Solution {
+  public:
+    int smallest(vector<int>&arr)
     {
         int mini = INT_MAX;
         for(int i=0;i<arr.size();i++)
@@ -60,13 +61,13 @@ int smallest(vector<int>&arr)
        
        int SecondS= INT_MAX;
        int FirstS = smallest(arr);
-       sort(arr.begin(),arr.end());
+       
        for(int i =  0; i < arr.size();i++)
        {
            if(arr[i]!=FirstS && arr[i]<SecondS)
            {
                SecondS=arr[i];
-               break;
+               
            }
        }
        if (SecondS == INT_MAX) {
@@ -75,7 +76,10 @@ int smallest(vector<int>&arr)
        return {FirstS,SecondS};
     }
     
-};// TC:O(nlogn), SC:O(1)
+};// TC:O(n), SC:O(1)
+
+
+
 int SecondL(int n, vector<int> a)
 {
  int largest = a[0];
